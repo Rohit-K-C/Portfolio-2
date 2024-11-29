@@ -1,30 +1,43 @@
 # Portfolio-2
 
 ## Aims
-A sandboxed network provides an essential learning environment and platform, offering a secure, isolated space to simulate real-world network scenarios without introducing risks to live systems. For this Portfolio, you will create your own private sandboxed virtual network using VirtualBox. The network will consist of multiple virtual machines (VMs) configured within a private IP address range. The aim is to gain an applied understanding of networking concepts, IP subnetting, network interface configuration, and a basic server setup, design, planning and organisation strategies.
+A sandboxed network provides an essential learning environment and platform, offering a secure, isolated space to simulate real-world network scenarios without introducing risks to live systems. For this Portfolio, you will create your own private sandboxed virtual network using VirtualBox. The network will consist of multiple virtual machines (VMs) configured within a private IP address range. The network will be isolated within a private IP address range and consist of the following key components:
+
+* Router (Ubuntu Server): Manages the routing of network traffic between VMs.
+* Desktop VM (Ubuntu Desktop): A client machine that communicates with both the router and the Application VM.
+* Application VM (Bitnami WordPress): A server hosting an application (WordPress in this case).
+  
+The goal of the project is to demonstrate an understanding of network setup, IP subnetting, network interface configuration, and testing network functionality.
 
 ## Functional test
 
 ### Router: Ubuntu Server
 
 #### Network Configuration:
-Command: sudo nano /etc/netplan/50-cloud-init.yaml
+On the router VM (Ubuntu Server), the primary network configuration file is /etc/netplan/50-cloud-init.yaml. This file contains the network settings for all adapters.
+
+#### Command: sudo nano /etc/netplan/50-cloud-init.yaml
 
 ![network configuration-router](https://github.com/user-attachments/assets/9d8808ef-e121-4310-8415-cfbac0824fe1)
 
 #### IP address of all adapters:
-Command: ip a
+After configuring the network settings, you can verify the IP addresses assigned to each network interface on the router by using the following command:
+
+#### Command: ip a
+
+This command will display all IP addresses associated with the router’s network interfaces.
+
 
 ![ip adapter](https://github.com/user-attachments/assets/e4846848-05e3-409a-920e-c047e2fbadaf)
 
 #### Pinging Desktop VM and Application VM:
+#### Command: ping 192.168.16.1
+![pinging both](https://github.com/user-attachments/assets/2faf1846-b4f4-4675-bda7-833817de2fd3)
 
-![ip adapter](https://github.com/user-attachments/assets/88e8a059-86ac-45ca-a04c-7094fe1c2400)
 
 ### Desktop VM: Ubuntu desktop
 #### Setting up ip address:
-
-![settingupip](https://github.com/user-attachments/assets/9feaf190-eea1-4d54-8d6d-fd463c98050e)
+![image](https://github.com/user-attachments/assets/06f92815-2a8c-4125-90e9-f6b7843fce2a)
 
 #### IP address of the adapter:
 Command: ip a
